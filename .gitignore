@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.env.bak
+*.env
+
+# Flask files
+instance/
+*.db
+*.sqlite3
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor configs
+.vscode/
+.idea/
+*.swp
+
+# Python crash logs
+*.log
+
+# Generated images
+generated_images/
+output.png
+
+# Hugging Face cache (optional)
+~/.cache/huggingface/
