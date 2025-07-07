@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text-to-Image Generator (FLUX.1-dev)</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .image-output {
+      margin-top: 30px;
+    }
+    img {
+      max-width: 80%;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🖼️ Text-to-Image Generator</h1>
+  <p>Enter a text prompt and watch the FLUX.1-dev model bring it to life!</p>
+
+  <form method="POST">
+    <input type="text" name="prompt" placeholder="e.g., A robot surfing on Saturn's rings" required />
+    <br />
+    <button type="submit">Generate Image</button>
+  </form>
+
+  {% if image_filename %}
+  <div class="image-output">
+    <h2>🎉 Generated Image:</h2>
+    <img src="{{ url_for('get_image', filename=image_filename) }}" alt="Generated image" />
+    <p><a href="{{ url_for('get_image', filename=image_filename) }}" download>⬇️ Download Image</a></p>
+  </div>
+  {% endif %}
+</body>
+</html>
